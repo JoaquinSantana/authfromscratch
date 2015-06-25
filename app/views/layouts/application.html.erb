@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SignupScratch</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if user_signed_in %>
+  <%= link_to "Wyloguj", logout_path, method: :delete, data: { confirm: "Czy chcesz się wylogować?"} %>
+<% else %>
+  <p><%= link_to "Zarejestruj", signup_path %></p> | 
+  <p><%= link_to "Zaloguj", login_path %></p>
+<% end %>
+<%= yield %>
+
+</body>
+</html>
